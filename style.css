@@ -1,4 +1,96 @@
+* {
+    /* border: 1px dotted red; */
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+
+    font-family: 'Roboto', sans-serif;
+
+    min-height:100vh;
+
+    margin: 0;
+    padding: 0;
+}
+
+.logo{
+    font-size: 24px;
+    color: #F9FAF8;
+    flex: 3 1 auto;
+    font-weight: 900;
+}
+
+a {
+    text-decoration: none;
+}
+
+.link{
+    font-size: 18px;
+    color: #e5e7eb;
+}
+
+.logo {
+    font-family: 'Kings', cursive;
+}
+
+.header{
+    background-color: #1F2937;
+    padding: 16px 10em;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    align-items: center;
+    
+}
+
+.room {
+    display: block;
+    text-align: center;
+}
+
+.shelf {
+    display: flex;
+    gap: 10px;
+}
+
+.shelf p {
+    margin: 0;
+    padding: 0;
+}
 
 .book {
-    background-color: grey;
+    background-color: #b8acab;
+    margin: auto;
+    padding: 10px;
+
+    border: 0px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer {
+    background-color: #1F2937;
+    color: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+}
+
+.footer p {
+    margin: 0;
+    padding: 0;
+}
+
+.footer a {
+    color: #e5e7eb;
 }
