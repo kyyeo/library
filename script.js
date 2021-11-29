@@ -10,6 +10,7 @@ let myLibrary = [
     author: "Malcolm Gladwell",
     image: "https://images-na.ssl-images-amazon.com/images/I/51Xvy4435cL._SY344_BO1,204,203,200_QL70_ML2_.jpg"
   }
+  
 ];
 
 // function to create a book
