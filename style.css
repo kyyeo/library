@@ -23,6 +23,10 @@ body {
     font-weight: 900;
 }
 
+.black {
+    color: black;
+}
+
 a {
     text-decoration: none;
 }
@@ -48,13 +52,21 @@ a {
 }
 
 .room {
-    display: block;
     text-align: center;
+
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
 }
 
 .shelf {
     display: flex;
+    flex-flow: row wrap;
+
     gap: 10px;
+    padding: 10px;
 }
 
 .shelf p {
@@ -71,8 +83,16 @@ a {
     border-radius: 10px;
 
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column wrap;
     align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.buttons{
+    padding: 10px;
+    display: flex;
+    flex-flow: row nowrap;
     justify-content: space-between;
     gap: 20px;
 }
