@@ -15,40 +15,19 @@ let myLibrary = [
     isRead: false
   },
   nonFiction2 = {
-    title: "Blink",
-    author: "Malcolm Gladwell",
-    image: "https://images-na.ssl-images-amazon.com/images/I/51Xvy4435cL._SY344_BO1,204,203,200_QL70_ML2_.jpg",
+    title: "Journey to the Center of the Earth",
+    author: "Jules Verne",
+    image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1389754903l/32829.jpg",
     pages: 200,
     isRead: true
   },
   nonFiction3 = {
-    title: "Blink",
-    author: "Malcolm Gladwell",
-    image: "https://images-na.ssl-images-amazon.com/images/I/51Xvy4435cL._SY344_BO1,204,203,200_QL70_ML2_.jpg",
+    title: "Peter Pan",
+    author: " J.M. Barrie",
+    image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1337714526l/34268.jpg",
     pages: 200,
     isRead: false
-  },
-  nonFiction4 = {
-    title: "Blink",
-    author: "Malcolm Gladwell",
-    image: "https://images-na.ssl-images-amazon.com/images/I/51Xvy4435cL._SY344_BO1,204,203,200_QL70_ML2_.jpg",
-    pages: 200,
-    isRead: true
-  },
-  nonFiction5 = {
-    title: "Blink",
-    author: "Malcolm Gladwell",
-    image: "https://images-na.ssl-images-amazon.com/images/I/51Xvy4435cL._SY344_BO1,204,203,200_QL70_ML2_.jpg",
-    pages: 200,
-    isRead: false
-  },
-  nonFiction6 = {
-    title: "Blink",
-    author: "Malcolm Gladwell",
-    image: "https://images-na.ssl-images-amazon.com/images/I/51Xvy4435cL._SY344_BO1,204,203,200_QL70_ML2_.jpg",
-    pages: 200,
-    isRead: true
-  },
+  }
 ];
 
 // function to create a book
@@ -57,7 +36,7 @@ function Book(title, author, image, pages, isRead) {
   this.title = title,
   this.author = author,
   this.image = image,
-  this.pages = page,
+  this.pages = pages,
   this.isRead = isRead
 }
 
@@ -66,6 +45,19 @@ function addBookToLibrary(book) {
   // do stuff here
   myLibrary.push(book);
 }
+
+// try creating a book
+const nonFiction4 = new Book("The Art of Happiness", 
+                            "His Holiness the Dalai Lama",
+                            "https://m.media-amazon.com/images/I/51LZfA8ZIpL.jpg",
+                            150,
+                            false 
+                            )
+
+// try adding a book to the library 
+// before displayLibrary() is called
+addBookToLibrary(nonFiction4);
+
 
 // select .shelf div
 const shelf = document.querySelector('.shelf')
@@ -92,8 +84,17 @@ function showBook(book){
   buttonsDiv.classList.add('buttons');
   const removeBookBtn = document.createElement('button');
   removeBookBtn.textContent = "Remove this book"
+  removeBookBtn.classList.add('button-49')  
+  removeBookBtn.addEventListener('click', () => {
+    alert(removeBookBtn.classList);
+  })
+
   const readBookBtn = document.createElement('button');
   readBookBtn.textContent = "Finished reading?"
+  readBookBtn.classList.add('button-51')
+  readBookBtn.addEventListener('click', () => {
+    alert(readBookBtn.classList);
+  })
   buttonsDiv.appendChild(removeBookBtn)
   buttonsDiv.appendChild(readBookBtn)
 
@@ -117,5 +118,56 @@ function displayLibrary(library) {
   }
 }
 
+// function to change read status
+function readBook(book){
+  this.isRead = true
+}
+
+// // find button-53 to "ADD A NEW BOOK"
+// const addNewBookBtn = document.querySelector('.button-53')
+// addNewBookBtn.addEventListener('click', () => {
+//   alert(addNewBookBtn.classList);
+// })
+
+
 // show the library
 displayLibrary(myLibrary);
+
+// try adding another book after displayLibrary()
+const nonFiction5 = new Book("A Brief History of Time", 
+                            "Stephen Hawking",
+                            "https://images-na.ssl-images-amazon.com/images/I/51xE6ZCQdqS._SX331_BO1,204,203,200_.jpg",
+                            212,
+                            false 
+                            )
+
+// add another book, and see if it gets displayed
+addBookToLibrary(nonFiction5);
+showBook(nonFiction5)
+
+
+// Get the modal
+var modal = document.querySelector("#myModal");
+
+// Get the button that opens the modal
+var btn = document.querySelector(".button-53");
+
+// Get the <span> element that closes the modal
+var span = document.querySelectorAll(".close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
