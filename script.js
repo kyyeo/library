@@ -145,6 +145,17 @@ const nonFiction5 = new Book("A Brief History of Time",
 addBookToLibrary(nonFiction5);
 showBook(nonFiction5)
 
+// function to "refresh" the library after add/remove book
+function refreshLibrary(){
+  // clean state
+  while(shelf.firstChild){
+    shelf.removeChild(shelf.lastChild);
+  }
+
+  // call function to show library
+  displayLibrary(myLibrary);
+}
+
 
 // Get the modal
 var modal = document.querySelector("#myModal");

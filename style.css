@@ -16,6 +16,11 @@ body {
     padding: 0;
 }
 
+h2 {
+  color: rgb(70, 96, 114);
+  font-size: 32px;
+}
+
 .logo{
     font-size: 24px;
     color: #F9FAF8;
@@ -346,9 +351,38 @@ a {
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 40%;
+
+    display: flex;
+    flex-flow: column nowrap;
+
+    font-size: 1.2rem;
+    border: 0px;
+    border-radius: 10px;
   }
   
+  .modal-content form div {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    /* width: 40%; */
+    display: inline-block;
+  }
+
+  .modal-content form input {
+    background-color: #fefefe;
+    /* margin: auto; */
+    padding: 5px;
+    line-height: 10px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    /* width: 40%; */
+  }
+
+  .modal-content form #submit {
+    display:block;
+  }
+
   /* The Close Button */
   .close {
     color: #aaaaaa;
