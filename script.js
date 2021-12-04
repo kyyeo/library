@@ -5,7 +5,7 @@ let myLibrary = [
     author: "Roald Dahl",
     image: "https://images-na.ssl-images-amazon.com/images/I/510xz1vMPNL._SX258_BO1,204,203,200_QL70_ML2_.jpg",
     pages: 200,
-    isRead: true
+    isRead: false
   },
   nonFiction1 = {
     title: "Blink",
@@ -19,7 +19,7 @@ let myLibrary = [
     author: "Jules Verne",
     image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1389754903l/32829.jpg",
     pages: 200,
-    isRead: true
+    isRead: false
   },
   nonFiction3 = {
     title: "Peter Pan",
@@ -98,7 +98,8 @@ function showBook(book, bookIndex){
   removeBookBtn.classList.add('button-49')  
   removeBookBtn.addEventListener('click', () => {
     // alert(removeBookBtn.classList);
-    alert(div.dataset.number)
+    removeBookFromLibrary(div.dataset.number);    
+    refreshLibrary();
   })
 
   // read book btn
@@ -106,7 +107,9 @@ function showBook(book, bookIndex){
   readBookBtn.textContent = "Finished reading?"
   readBookBtn.classList.add('button-51')
   readBookBtn.addEventListener('click', () => {
-    alert(readBookBtn.classList);
+    // alert(readBookBtn.classList);
+    readBook(myLibrary[div.dataset.number]);    
+    refreshLibrary();
   })
 
   // append btns
@@ -135,7 +138,7 @@ function displayLibrary(library) {
 
 // function to change read status
 function readBook(book){
-  this.isRead = true
+  book.isRead = true
 }
 
 // // find button-53 to "ADD A NEW BOOK"
