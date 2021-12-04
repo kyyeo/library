@@ -215,3 +215,8 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+// extra function to close modal
+function closeModal(){
+  modal.style.display = "none";
+}
