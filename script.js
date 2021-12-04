@@ -128,7 +128,7 @@ function showBook(book, bookIndex){
 // function to display an array of library books
 function displayLibrary(library) {
   for(let i = 0; i<library.length; i++){
-    console.log(library[i])
+    // console.log(library[i])
     // console.log(library[i].author)
     // console.log(library[i].title)
 
@@ -141,12 +141,27 @@ function readBook(book){
   book.isRead = true
 }
 
-// // find button-53 to "ADD A NEW BOOK"
-// const addNewBookBtn = document.querySelector('.button-53')
-// addNewBookBtn.addEventListener('click', () => {
-//   alert(addNewBookBtn.classList);
-// })
-
+// find submitBook ID to "ADD A NEW BOOK"
+const addNewBookBtn = document.querySelector('#submitBook')
+addNewBookBtn.addEventListener('click', () => {
+  // alert(addNewBookBtn.classList);
+  let title = document.querySelector('#bookTitle').value
+  let author = document.querySelector('#bookAuthor').value
+  let image = document.querySelector('#bookImage').value
+  let pages = document.querySelector('#bookPages').value
+  let radioBtns = document.querySelectorAll('#bookIsRead')
+  let isRead
+  for(i=0; i<radioBtns.length; i++){
+    if(radioBtns[i].checked) {
+      isRead = radioBtns[i].value
+    }
+  }
+  
+  let newBook = new Book (title, author, image, pages, isRead);
+  console.log(newBook);
+  addBookToLibrary(newBook);
+  showBook(newBook);
+})
 
 // show the library
 displayLibrary(myLibrary);
