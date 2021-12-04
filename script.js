@@ -46,6 +46,13 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
+// remove a book with data-indexNumber 
+function removeBookFromLibrary(indexNumber){
+  // at indexNumber, remove 1 entry from myLibrary array
+  myLibrary.splice(indexNumber, 1);
+}
+
+
 // try creating a book
 const nonFiction4 = new Book("The Art of Happiness", 
                             "His Holiness the Dalai Lama",
@@ -63,11 +70,13 @@ addBookToLibrary(nonFiction4);
 const shelf = document.querySelector('.shelf')
 
 // take a book, and show its title and author
-function showBook(book){
+function showBook(book, bookIndex){
+
   // div to hold the book
-  const div = document.createElement('div');
-  // style with a CSS class
+  const div = document.createElement('div')
   div.classList.add('book');
+  // for association purposes with removeBtn
+  div.setAttribute('data-number', bookIndex)
 
   // create elements  
   const bookImage = document.createElement('img');
@@ -82,23 +91,29 @@ function showBook(book){
   // create the buttons div
   const buttonsDiv = document.createElement('div');
   buttonsDiv.classList.add('buttons');
+  
+  // remove btn
   const removeBookBtn = document.createElement('button');
   removeBookBtn.textContent = "Remove this book"
   removeBookBtn.classList.add('button-49')  
   removeBookBtn.addEventListener('click', () => {
-    alert(removeBookBtn.classList);
+    // alert(removeBookBtn.classList);
+    alert(div.dataset.number)
   })
 
+  // read book btn
   const readBookBtn = document.createElement('button');
   readBookBtn.textContent = "Finished reading?"
   readBookBtn.classList.add('button-51')
   readBookBtn.addEventListener('click', () => {
     alert(readBookBtn.classList);
   })
+
+  // append btns
   buttonsDiv.appendChild(removeBookBtn)
   buttonsDiv.appendChild(readBookBtn)
 
-  // append elements
+  // append elements to the book
   div.appendChild(bookImage)
   div.appendChild(bookDetails)
   div.appendChild(buttonsDiv)
@@ -114,7 +129,7 @@ function displayLibrary(library) {
     // console.log(library[i].author)
     // console.log(library[i].title)
 
-    showBook(library[i])
+    showBook(library[i], i)
   }
 }
 
